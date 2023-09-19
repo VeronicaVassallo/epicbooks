@@ -1,48 +1,40 @@
-import React,{Component} from "react";
+import React,{useState} from "react";
 
-import Button from 'react-bootstrap/Button';
+import CommentArea from "./CommentArea";
+import ModalTextArea from "./ModalTextArea";
 import Card from 'react-bootstrap/Card';
 import { nanoid } from "nanoid";
 
 import './singleBook.css'
 
 
+const SingleBook = ({img, title, price, asin}) => {
+   
+ const [selected, setSelected] = useState(false);
 
 
-export default class SingleBook extends Component{
-    constructor(props){
-        super(props);
-      
-        this.state = {
-            selected: false
-        }
-
+    const toggleBorder = () => {
+        setSelected(!selected)
+  
     }
-
- 
-    toggleBorder = (e) => {
-        debugger;
-        this.setState(prevState =>({
-         selected: !prevState.selected,
-        }))
-
-    }
-
-    render(){
-        return(
-                <Card key={nanoid()} style={{ width: '18rem' }}>
-                    <Card.Img onClick={this.toggleBorder} 
-                    className={`${this.state.selected? "myBorder" : ""}`}
-                    variant="top" src={this.props.img}/>
+    
+    return(
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img onClick={toggleBorder} 
+                    className={`${selected? "myBorder" : ""}`} //se selected è true aggiungi myBorder, altrimenti aggiungi stringa vuota alla classe
+                    variant="top" src={img}/>
                     <Card.Body  >
-                        <Card.Title>{this.props.title}</Card.Title>
+                        <Card.Title>{title}</Card.Title>
                         <Card.Text>
-                            {this.props.price}
+                            {price}
                         </Card.Text>
-                        <Button variant="primary">Aggiungi</Button>
+                        <ModalTextArea asinParametro={asin} />
+
                     </Card.Body>
                 </Card>
-        )
-    }
+    )
 }
+
+
+export default SingleBook;
 
