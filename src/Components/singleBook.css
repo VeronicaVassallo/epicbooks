@@ -1,9 +1,57 @@
-.myBorder{
-    border: 3px red solid;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-.myhight{
-    height: 100px;
+.myBorder {
+	border: 10px red solid;
+	box-shadow: 5px 5px 15px 5px #ff0000;
 }
-.MyForm{
-    width: 200rem;
+.myhight {
+	height: 100px;
+}
+.MyForm {
+	width: 100em;
+	height: 5em;
+}
+
+.myDetails {
+	border: solid 2px white;
+	color: white;
+	padding: 5%;
+	margin: 5%;
+}
+
+.mybackground {
+	background-color: rgb(54, 94, 54);
+}
+.myshadow {
+	box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.myList {
+	list-style: none;
+	background-color: rgb(54, 94, 54);
+	margin: 5px;
+	padding: 10px;
+	border-radius: 5%;
+	color: white;
+}
+.myStyle {
+	text-decoration: none;
+}
+.myjumbotron {
+	background-image: url(https://bgfons.com/d/books_texture3014.jpg);
+	height: 10rem;
+	font-size: xx-large;
+	text-align: center;
+}
+.hovered:hover {
+	box-shadow: 5px 5px 15px 5px #ff0000;
+}
+
+@media screen and (max-width: 576px) {
+	.myMediaQuery {
+		flex-wrap: wrap;
+	}
 }

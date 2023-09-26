@@ -1,14 +1,14 @@
 import React from "react";
-
+import "./singleBook.css";
 const Jumbotron = () => {
-
-  return(
-    <>
-      <h2>Welcome</h2>
-      <p>select your favorite...</p>
-      
-    </>
-  )
-}
+	return (
+		<>
+			<div className="myjumbotron text-light">
+				<h2>Benvenuto</h2>
+				<p>Scegli il tuo preferito...</p>
+			</div>
+		</>
+	);
+};
 
 export default Jumbotron;

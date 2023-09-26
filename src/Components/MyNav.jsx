@@ -18,7 +18,6 @@ const MyNav = ({ navQuery, navSetQuery }) => {
 	//const [filteredBooks, setFilteredBooks] = useState(fantasy);
 
 	const { books, setBooks, loading, getData } = useContext(Books);
-	console.log(books);
 
 	const getValueFromForm = (value) => {
 		navSetQuery(value);
@@ -26,7 +25,7 @@ const MyNav = ({ navQuery, navSetQuery }) => {
 
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
-			<Container fluid className="bg-info MyColor">
+			<Container fluid className="mybackground ">
 				<Row>
 					<Navbar.Brand className="text-white" href="#">
 						EpicBooks
@@ -35,25 +34,32 @@ const MyNav = ({ navQuery, navSetQuery }) => {
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
 							{navLinks.map((link) => (
-								<Nav.Link key={nanoid()} href={link.url}>
+								<Nav.Link
+									className="mx-2 text-light"
+									key={nanoid()}
+									href={link.url}
+								>
 									{link.label}
 								</Nav.Link>
 							))}
+
 							<Form className="MyForm" /*onSubmit={submitFiltered}*/>
 								<Row className="mb-3">
 									<Form.Group
 										className="d-flex"
 										as={Col}
 										md="4"
+										xs="2"
 										controlId="validationCustom01"
 									>
-										<Form.Label>Search Your Book</Form.Label>
+										<Form.Label className="text-light ms-5">
+											Cerca il tuo libro
+										</Form.Label>
 										<Form.Control
 											name={navQuery}
 											type="text"
 											onChange={(e) => getValueFromForm(e.target.value)}
 										/>
-										<Button>Dark Mode</Button>
 									</Form.Group>
 								</Row>
 							</Form>

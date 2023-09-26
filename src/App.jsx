@@ -1,37 +1,20 @@
-
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import MyNav from './Components/MyNav';
-import Jumbotron from './Components/Jumbotron';
-import LatestRelease from './Components/LatestRelease';
-import { Container, Row, Col } from "react-bootstrap";
-import BookContext from './contexts/BookContext';
-
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Details from "./Details";
+import ErrorPage from "./ErrorPage";
 
 function App() {
-const [query, setQuery] = useState("")
-  return (
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route exact path="/" element={<Home />}></Route>
+				<Route path="/details/:bookid" element={<Details />}></Route>
 
-      <BookContext>
-      
-          <MyNav navQuery={query} navSetQuery={setQuery} />
-          <Jumbotron/>
-          <Container>
-            <Row>
-                <Col>
-                  <LatestRelease navQuery={query}/>
-                </Col>
-                <Col>
-                  
-                </Col>
-            </Row>
-          </Container>
-        
-      </BookContext>
-      
-    
-  );
+				<Route path="*" element={<ErrorPage />}></Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
